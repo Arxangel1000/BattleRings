@@ -143,4 +143,9 @@ public class RingController : MonoBehaviour, IMove
     {
         EventSpawnIsFinished.spawnIsFinish -= MoveAfterSpawn;
     }
+
+    private void OnDisable()
+    {
+        UnSubscribe();
+    }
 }

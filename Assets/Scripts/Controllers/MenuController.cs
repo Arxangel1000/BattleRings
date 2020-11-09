@@ -35,6 +35,11 @@ public class MenuController : MonoBehaviour
         EventUnitsTeamIsGone.teamIsGone -= WinLogic;
     }
 
+    private void OnDisable()
+    {
+        UnSubscribeIsOneTeamIsLos();
+    }
+
     public void RestartScene()
     {
         GameData.CurrentCountUnit = 0;
@@ -64,13 +69,12 @@ public class MenuController : MonoBehaviour
     private void WinLogic()
     {
         winBanner.SetActive(true);
-        if (GameData.SumRadiusBlueUnit <= 0)
+        if (GameData.BlueUnitAtScene <= 0)
             whoWin.text = "Победила: красная команда";
-        if (GameData.SumRadiusRedUnit <= 0)
+        if (GameData.RedUnitAtScene <= 0)
             whoWin.text = "Победила: синяя команда";
         var timeSession = System.DateTime.Now - TimeSession.instance.timeInSession;
         howTime.text = "Время сессии " + timeSession.Minutes + "m : " + timeSession.Seconds + "s";
         UnSubscribeIsOneTeamIsLos();
     }
-    
 }

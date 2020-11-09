@@ -17,7 +17,7 @@ public class Creator : MonoBehaviour
         CreateBattleField();
         SpawnAllUnits();
     }
-
+    
     private void CreateBattleField()
     {
         Instantiate(new BattleFieldCreate().BuildObject(GameData.GameAreaWidth, GameData.GameAreaHeight));
