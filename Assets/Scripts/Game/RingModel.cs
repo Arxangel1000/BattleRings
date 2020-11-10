@@ -8,8 +8,5 @@ public class RingModel : MonoBehaviour
     public float unitDestroyRadius;
 
     public bool isBlue;
-
     
-    
-    // потом скрыть
 }
