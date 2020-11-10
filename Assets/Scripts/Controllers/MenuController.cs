@@ -75,6 +75,5 @@ public class MenuController : MonoBehaviour
             whoWin.text = "Победила: синяя команда";
         var timeSession = System.DateTime.Now - TimeSession.instance.timeInSession;
         howTime.text = "Время сессии " + timeSession.Minutes + "m : " + timeSession.Seconds + "s";
-        UnSubscribeIsOneTeamIsLos();
     }
 }

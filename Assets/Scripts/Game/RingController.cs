@@ -26,7 +26,7 @@ public class RingController : MonoBehaviour, IMove
         model.unitCurrentRadius = model.unitSpawnRadius;
         x = Random.Range(-1, -0.1f);
         y = Random.Range(-1, -0.1f);
-        Subscribe();
+        SubscribeMoveAfterSpawn();
         AddTeamSumRadius();
     }
 
@@ -83,7 +83,6 @@ public class RingController : MonoBehaviour, IMove
     {
         Debug.Log("Spawn is finished and i can stat to move");
         gameRegime = true;
-        UnSubscribe();
     }
 
     private void Destroyer()
@@ -134,18 +133,18 @@ public class RingController : MonoBehaviour, IMove
         }
     }
     
-    public void Subscribe()
+    public void SubscribeMoveAfterSpawn()
     {
         EventSpawnIsFinished.spawnIsFinish += MoveAfterSpawn;
     }
 
-    private void UnSubscribe()
+    private void UnSubscribeMoveAfterSpawn()
     {
         EventSpawnIsFinished.spawnIsFinish -= MoveAfterSpawn;
     }
 
     private void OnDisable()
     {
-        UnSubscribe();
+        UnSubscribeMoveAfterSpawn();
     }
 }
